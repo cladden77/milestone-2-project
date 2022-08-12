@@ -1,10 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import CalendarView from './Content/CalendarView'
 
 function App() {
   return (
     <div className="App">
       <h1>Test</h1>
+      <CalendarView />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
