@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import CalendarView from "./Content/CalendarView";
 
 // ADDED NAVBAR DELETED REACT LOGO
-function App() {
+function Home() {
   return (
     <div className="App">
       <Navbar />
@@ -12,4 +12,4 @@ function App() {
   );
 }
 
-export default App
+export default Home;
