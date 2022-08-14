@@ -8,7 +8,7 @@ const dbConfig = require("./db");
 
 // HOMEPAGE ROUTE
 app.get("/", (req, res) => {
-  res.send("HOLA");
+  res.send("home");
 });
 
 app.get("*", (req, res) => {
