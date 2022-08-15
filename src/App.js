@@ -1,26 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 import CalendarView from './Content/CalendarView'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="d-flex flex-column min-vh-100 App">
       <h1>Test</h1>
+      <div className="my-5">
       <CalendarView />
-      <header className="App-header">
+      </div>
+
+      <footer class="App-header mt-auto">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </footer>
     </div>
   );
 }

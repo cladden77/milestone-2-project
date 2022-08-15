@@ -9,16 +9,22 @@ function CalendarView() {
   }
 
   return (
-    <div className='app'>
-      <h1 className='text-center'>React Calendar</h1>
-      <div className='calendar-container'>
-        <Calendar onChange={setDate} value={date} onClickDay={onClickDay}/>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-8">
+          <div className='app'>
+            <h1 className='text-center'>Schedule an Appointment Below:</h1>
+            <div className='calendar-container'>
+              <Calendar onChange={setDate} value={date} onClickDay={onClickDay}/>
+            </div>
+            <p className='text-center'>
+              <span className='bold'>Selected Date:</span>{' '}
+              {date.toDateString()}
+            </p>
+          </div>
+        </div>
       </div>
-      <p className='text-center'>
-        <span className='bold'>Selected Date:</span>{' '}
-        {date.toDateString()}
-      </p>
-    </div> 
+    </div>
   );
 }
 
