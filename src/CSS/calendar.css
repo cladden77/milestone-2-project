@@ -1,69 +1,21 @@
-/* Whole Calendar */
+
 .react-calendar { 
-    width: 75%;
-    margin: auto;
+    width: 100%;
     max-width: 100%;
-    background-color: wheat;
-    color: #222;
-    border-radius: 8px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.125em;
    }
 
    /* Genral Top buttons & Month*/
    .react-calendar__navigation button {
     color: #6f48eb;
-    min-width: 44px;
-    background: gray;
-    font-size: 16px;
-    margin: 8px;
-   }
-   .react-calendar__navigation button:enabled:hover,
-   .react-calendar__navigation button:enabled:focus {
-    background-color: grey;
-   }
-   .react-calendar__navigation button[disabled] {
-    background-color: grey;
-   }
-   abbr[title] {
-    text-decoration: none;
-   }
 
+   }
 /* Selected Day & Hovering Day*/
    .react-calendar__tile:enabled:hover,
    .react-calendar__tile:enabled:focus {
     background: #f8f8fa;
     color: #6f48eb;
-    border-radius: 6px;
    }
-   /* Todays Day & Month*/
-   .react-calendar__tile--now {
-    background: #1d0f4d;
-    border-radius: 6px;
-    font-weight: bold;
-    color: #48eb4b;
-   }
-   /* Hovering over todays month and year*/
-   .react-calendar__tile--now:enabled:hover,
-   .react-calendar__tile--now:enabled:focus {
-    background: #6f48eb33;
-    border-radius: 6px;
-    font-weight: bold;
-    color: #6f48eb;
-   }
-    /* Hovering over todays month and year*/
-   .react-calendar__tile--hasActive:enabled:hover,
-   .react-calendar__tile--hasActive:enabled:focus {
-    background: #f8f8fa;
-   }
-   /* No clue */
-   .react-calendar__tile--active {
-    background: #6f48eb;
-    border-radius: 6px;
-    font-weight: bold;
-    color: white;
-   }
+
    /* Just Selceted button */
    .react-calendar__tile--active:enabled:hover,
    .react-calendar__tile--active:enabled:focus {
@@ -74,19 +26,18 @@
 
 /* Each individual day button*/
 .react-calendar__month-view__days__day{
-    flex: 1em;
-    border-radius: 20px;
-    margin-top: 1em;
-    padding: 10px;
     font-weight: bolder;
-    background-color: #c4b3ff;
 }
-
-
-
 
 /* Each individual Day Title ( Mon, Tue, Wed...)*/
 .react-calendar__month-view__weekdays__weekday{
     font-weight: bolder;
-    margin-top: .5em;
 }
+
+   /* Todays Day & Month*/
+.react-calendar__tile--now {
+    color: rgb(156, 153, 153);
+    background-color: #f6f6f6;
+    font-weight: bold;
+   }
+
