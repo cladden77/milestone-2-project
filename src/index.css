@@ -23,6 +23,6 @@ code {
 .nav-link{
   color: white !important;
 }
-.navbar-nav{
-  margin-left: auto !important;
+#navbar-nav{
+  margin-right: auto !important;
 }
