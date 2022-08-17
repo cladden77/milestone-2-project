@@ -6,19 +6,10 @@ require("dotenv").config({ path: "./config.env" });
 const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
-app.use(require("./routes/appointment"));
+app.use(require("./routes/appointment"))
 
 // get driver connection
 const dbo = require("./db/conn");
-
-// HOMEPAGE ROUTE
-app.get("/", (req, res) => {
-  res.send("home");
-});
-
-app.get("*", (req, res) => {
-  res.status("<h1>404 Page</h1>");
-});
 
 // CONNECTION
 app.listen(port, () => {
@@ -28,4 +19,13 @@ app.listen(port, () => {
  
   });
   console.log(`Server is running on port: ${port}`);
+});
+
+// HOMEPAGE ROUTE
+app.get("/", (req, res) => {
+  res.send("home");
+});
+
+app.get("*", (req, res) => {
+  res.status("<h1>404 Page</h1>");
 });

@@ -1,8 +1,8 @@
 const express = require("express");
  
-// recordRoutes is an instance of the express router.
+// appointmentRoutes is an instance of the express router.
 // We use it to define our routes.
-// The router will be added as a middleware and will take control of requests starting with path /record.
+// The router will be added as a middleware and will take control of requests starting with path /appointment.
 const appointmentRoutes = express.Router();
  
 // This will help us connect to the database
@@ -24,7 +24,7 @@ appointmentRoutes.route("/appointment").get(function (req, res) {
    });
 });
  
-// Single record by id
+// Single appointment by id
 appointmentRoutes.route("/appointment/:id").get(function (req, res) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
@@ -36,7 +36,7 @@ appointmentRoutes.route("/appointment/:id").get(function (req, res) {
    });
 });
  
-// Create a new record.
+// Create a new appointment.
 appointmentRoutes.route("/appointment/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
@@ -49,7 +49,7 @@ appointmentRoutes.route("/appointment/add").post(function (req, response) {
  });
 });
  
-// Update a record by id.
+// Update a appointment by id.
 appointmentRoutes.route("/update/:id").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
@@ -68,7 +68,7 @@ appointmentRoutes.route("/update/:id").post(function (req, response) {
    });
 });
  
-// Delete a record
+// Delete a appointment
 appointmentRoutes.route("/:id").delete((req, response) => {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };

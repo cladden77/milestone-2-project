@@ -41,13 +41,15 @@ import Create from "./components/create";
  
 const App = () => {
  return (
+  <div className="App">
    <div>
      <Navbar />
      <Routes>
        <Route exact path="/" element={<AppointmentList />} />
        <Route path="/edit/:id" element={<Edit />} />
-       <Route path="/create" element={<Create />} />
+       <Route path="/appointment/add" element={<Create />} />
      </Routes>
+   </div>
    </div>
  );
 };

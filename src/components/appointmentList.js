@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
  
 const Appointment = (props) => (
  <tr>
-   <td>{props.appointment.name}</td>
-   <td>{props.appointment.position}</td>
-   <td>{props.appointment.level}</td>
+   <td>{props.appointment.date}</td>
+   <td>{props.appointment.time}</td>
    <td>
-     <Link className="btn btn-link" to={`/edit/${props.appointment._id}`}>Edit</Link> |
+     <button className="btn btn-link" to={`/edit/${props.appointment._id}`}>Edit</button> |
      <button className="btn btn-link"
        onClick={() => {
          props.deleteAppointment(props.appointment._id);
@@ -22,7 +21,7 @@ const Appointment = (props) => (
 export default function AppointmentList() {
  const [appointments, setAppointments] = useState([]);
  
- // This method fetches the records from the database.
+ // This method fetches the appointments from the database.
  useEffect(() => {
    async function getAppointments() {
      const response = await fetch(`http://localhost:3000/appointment/`);
@@ -33,8 +32,8 @@ export default function AppointmentList() {
        return;
      }
  
-     const records = await response.json();
-     setAppointments(records);
+     const appointments = await response.json();
+     setAppointments(appointments);
    }
  
    getAppointments();
@@ -43,7 +42,7 @@ export default function AppointmentList() {
  }, [appointments.length]);
  
  // This method will delete a record
- async function deleteRecord(id) {
+ async function deleteAppointment(id) {
    await fetch(`http://localhost:3000/${id}`, {
      method: "DELETE"
    });
@@ -52,30 +51,28 @@ export default function AppointmentList() {
    setAppointments(newAppointments);
  }
  
- // This method will map out the records on the table
+ // This method will map out the Appointments on the table
  function appointmentList() {
    return appointments.map((appointment) => {
      return (
        <Appointment
-         record={appointment}
-         deleteRecord={() => deleteRecord(appointment._id)}
+         appointment={appointment}
+         deleteAppointment={() => deleteAppointment(appointment._id)}
          key={appointment._id}
        />
      );
    });
  }
  
- // This following section will display the table with the records of individuals.
+ // This following section will display the table with the Appointments of individuals.
  return (
-   <div>
+   <div className="container mt-5">
      <h3>Appointment List</h3>
-     <table className="table table-striped" style={{ marginTop: 20 }}>
+     <table className="table table-striped">
        <thead>
          <tr>
-           <th>Name</th>
-           <th>Position</th>
-           <th>Level</th>
-           <th>Action</th>
+           <th>Date</th>
+           <th>Time</th>
          </tr>
        </thead>
        <tbody>{appointmentList()}</tbody>
