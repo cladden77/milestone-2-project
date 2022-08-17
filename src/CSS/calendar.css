@@ -1,0 +1,48 @@
+.react-calendar { 
+    width: 100%;
+    max-width: 100%;
+   }
+
+   /* Genral Top buttons & Month*/
+   .react-calendar__navigation button {
+    color: #6f48eb;
+
+   }
+/* Selected Day & Hovering Day*/
+   .react-calendar__tile:enabled:hover,
+   .react-calendar__tile:enabled:focus {
+    background: #f8f8fa;
+    color: #6f48eb;
+   }
+
+   /* Just Selceted button */
+   .react-calendar__tile--active:enabled:hover,
+   .react-calendar__tile--active:enabled:focus {
+    background: #6f48eb;
+    color: white;
+   }
+
+
+/* Each individual day button*/
+.react-calendar__month-view__days__day{
+    font-weight: bolder;
+    padding: 1.25em 0em;
+}
+
+/* Each individual Day Title ( Mon, Tue, Wed...)*/
+.react-calendar__month-view__weekdays__weekday{
+    font-weight: bolder;
+}
+
+   /* Todays Day & Month*/
+.react-calendar__tile--now {
+    color: rgb(156, 153, 153);
+    background-color: #f6f6f6;
+    font-weight: bold;
+   }
+
+.availableTime button{
+    margin: .25em;
+    background-color: #af99fa;
+    border-radius: 1em;
+} 
