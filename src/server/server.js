@@ -1,3 +1,4 @@
+// Initialize
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -6,9 +7,20 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(require("./routes/record"));
+
 // get driver connection
 const dbo = require("./db/conn");
- 
+
+// HOMEPAGE ROUTE
+app.get("/", (req, res) => {
+  res.send("home");
+});
+
+app.get("*", (req, res) => {
+  res.status("<h1>404 Page</h1>");
+});
+
+// CONNECTION
 app.listen(port, () => {
   // perform a database connection when server starts
   dbo.connectToServer(function (err) {
