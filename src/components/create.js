@@ -3,9 +3,8 @@ import { useNavigate } from "react-router";
  
 export default function Create() {
  const [form, setForm] = useState({
-   name: "",
-   position: "",
-   level: "",
+   date: "",
+   time: "",
  });
  const navigate = useNavigate();
  
@@ -21,28 +20,28 @@ export default function Create() {
    e.preventDefault();
  
    // When a post request is sent to the create url, we'll add a new record to the database.
-   const newPerson = { ...form };
+   const newAppointment = { ...form };
  
    await fetch("http://localhost:3000/appointment/add", {
      method: "POST",
      headers: {
        "Content-Type": "application/json",
      },
-     body: JSON.stringify(newPerson),
+     body: JSON.stringify(newAppointment),
    })
    .catch(error => {
      window.alert(error);
      return;
    });
  
-   setForm({ name: "", position: "", level: "" });
+   setForm({ date: "", time: "" });
    navigate("/");
  }
  
  // This following section will display the form that takes the input from the user.
  return (
    <div>
-     <h3>Create New Record</h3>
+     <h3>Create New Appointment</h3>
      <form onSubmit={onSubmit}>
        {/* <div className="form-group">
          <label htmlFor="name">Name</label>
