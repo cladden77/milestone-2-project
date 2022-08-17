@@ -43,6 +43,7 @@ export default function Create() {
    <div>
      <h3>Create New Appointment</h3>
      <form onSubmit={onSubmit}>
+<<<<<<< HEAD
        {/* <div className="form-group">
          <label htmlFor="name">Name</label>
          <input
@@ -53,6 +54,8 @@ export default function Create() {
            onChange={(e) => updateForm({ name: e.target.value })}
          />
        </div> */}
+=======
+>>>>>>> f725c2182c24bdf852787451a3f8cfd98aa6dec9
        <div className="form-group">
          <label htmlFor="date">Date</label>
          <input

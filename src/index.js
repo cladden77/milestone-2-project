@@ -17,10 +17,16 @@
 // reportWebVitals();
 
 import React from "react";
+<<<<<<< HEAD
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
+=======
+import ReactDOM from "react-dom";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+>>>>>>> f725c2182c24bdf852787451a3f8cfd98aa6dec9
 
 ReactDOM.render(
   <React.StrictMode>

@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Just default color feel free to edit to your liking */
+/* important setting to make sure bootstrap doesnt format it different than what we set it to */
+.navbar{
+  background-color: blueviolet !important;
+}
+.navbar-brand{
+  color: chartreuse;
+}
+.nav-link{
+  color: white !important;
+}
+#navbar-nav{
+  margin-right: auto !important;
+}
