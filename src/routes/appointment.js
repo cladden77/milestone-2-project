@@ -13,7 +13,7 @@ const ObjectId = require("mongodb").ObjectId;
  
  
 // List of all the appointments.
-appointmentRoutes.route("/appointments").get(function (req, res) {
+appointmentRoutes.route("/appointment").get(function (req, res) {
  let db_connect = dbo.getDb("appointments");
  db_connect
    .collection("appointments")
@@ -25,7 +25,7 @@ appointmentRoutes.route("/appointments").get(function (req, res) {
 });
  
 // Single record by id
-appointmentRoutes.route("/appointments/:id").get(function (req, res) {
+appointmentRoutes.route("/appointment/:id").get(function (req, res) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
  db_connect
@@ -37,7 +37,7 @@ appointmentRoutes.route("/appointments/:id").get(function (req, res) {
 });
  
 // Create a new record.
-appointmentRoutes.route("/record/add").post(function (req, response) {
+appointmentRoutes.route("/appointment/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
    date: req.body.date,
