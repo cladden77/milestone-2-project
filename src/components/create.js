@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import CalendarView from "../Content/CalendarView";
 import "../CSS/calendar.css";
+import "../CSS/create.css";
 
 export default function Create() {
   const [form, setForm] = useState({
     date: "",
     time: "",
   });
+
+  const [selectedDate, setDate] = useState(null);
+
+  const [selectedTime, setTime] = useState(null);
+
   const navigate = useNavigate();
 
   // These methods will update the state properties.
@@ -42,28 +48,31 @@ export default function Create() {
   // This following section will display the form that takes the input from the user.
   return (
     <div>
-      <h3>Create New Appointment</h3>
-      <CalendarView />
+      <CalendarView setDate={setDate} setTime={setTime} />
       <form onSubmit={onSubmit}>
-        <div className="form-group">
-          <label htmlFor="date">Date</label>
-          <input
-            type="date"
-            className="form-control"
-            id="date"
-            value={form.date}
-            onChange={(e) => updateForm({ date: e.target.value })}
-          />
+        <div className="group">
+          <div className="form-group">
+            <label htmlFor="date">Date</label>
+            <input
+              type="date"
+              className="form-control"
+              id="date"
+              value={selectedDate}
+              onChange={(e) => updateForm({ date: e.target.value })}
+            />
+          </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="time">time</label>
-          <input
-            type="time"
-            className="form-control"
-            id="time"
-            value={form.time}
-            onChange={(e) => updateForm({ time: e.target.value })}
-          />
+        <div className="group">
+          <div className="form-group">
+            <label htmlFor="time">Time</label>
+            <input
+              type="time"
+              className="form-control"
+              id="time"
+              value={selectedTime}
+              onChange={(e) => updateForm({ time: e.target.value })}
+            />
+          </div>
         </div>
         <div className="form-group">
           <input

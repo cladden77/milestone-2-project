@@ -1,0 +1,25 @@
+#date{
+    pointer-events: none;
+}
+
+#time{
+    pointer-events: none;
+}
+
+
+
+.group{
+    display: flex;
+    justify-content: center;
+}
+
+.form-group{
+    text-align: center;
+    margin: .25em;
+}
+
+input{
+    width: 25%;
+    text-align: center;
+    display: flex;
+}
