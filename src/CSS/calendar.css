@@ -1,23 +1,26 @@
 .react-calendar { 
+    border-radius: 1em;
     width: 100%;
     max-width: 100%;
+    text-align: center;
+    padding-bottom: 15px;
    }
 
    /* Genral Top buttons & Month*/
-   .react-calendar__navigation button {
+.react-calendar__navigation button {
     color: #6f48eb;
 
    }
 /* Selected Day & Hovering Day*/
-   .react-calendar__tile:enabled:hover,
-   .react-calendar__tile:enabled:focus {
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
     background: #f8f8fa;
     color: #6f48eb;
    }
 
    /* Just Selceted button */
-   .react-calendar__tile--active:enabled:hover,
-   .react-calendar__tile--active:enabled:focus {
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
     background: #6f48eb;
     color: white;
    }
@@ -26,7 +29,8 @@
 /* Each individual day button*/
 .react-calendar__month-view__days__day{
     font-weight: bolder;
-    padding: 1.25em 0em;
+    padding: 1.5em;
+    border-radius: 10px;
 }
 
 /* Each individual Day Title ( Mon, Tue, Wed...)*/
@@ -41,8 +45,30 @@
     font-weight: bold;
    }
 
+.availableTime {
+    display: flex;
+    justify-content: space-between;
+    
+} 
+
 .availableTime button{
-    margin: .25em;
+    text-align: center;
     background-color: #af99fa;
     border-radius: 1em;
 } 
+
+
+.react-calendar__tile--active{
+    background: #6f48eb;
+    color: white;
+}
+
+.react-calendar__month-view__days__day--weekend{
+color: red;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth{
+    border-radius: 0%;
+    color:rgb(86, 86, 86);
+    background-color: #8f82b8;
+}
