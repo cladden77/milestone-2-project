@@ -4,23 +4,67 @@ import "react-calendar/dist/Calendar.css";
 import "../CSS/calendar.css";
 import { useEffect } from "react";
 
-function CalendarView() {
+function CalendarView(month) {
   const [date, setDate] = useState(new Date());
+  // Day var
   var [weekend, setWeekend] = useState(true);
-
+  var [month, setMonth] = useState(null);
+  var [day, setDay] = useState(null);
+  var [year, setYear] = useState(null);
   function onClickDay(date) {
-    var string = date.toDateString();
-    console.log(date);
+    var stringDate = date.toDateString();
     if (
-      string.startsWith("Sun") === true ||
-      string.startsWith("Sat") === true
+      stringDate.startsWith("Sun") === true ||
+      stringDate.startsWith("Sat") === true
     ) {
-      console.log("hi");
       setWeekend(false);
     } else {
+      setMonth(findMonth(stringDate));
+      setDay(findDay(stringDate));
+      setYear(findYear(stringDate));
       setWeekend(true);
     }
   }
+
+  function findMonth(stringDate) {
+    if (stringDate.search("Jan") >= 0) {
+      return (month = "01");
+    } else if (stringDate.search("Feb") >= 0) {
+      return (month = "02");
+    } else if (stringDate.search("Mar") >= 0) {
+      return (month = "03");
+    } else if (stringDate.search("Apr") >= 0) {
+      return (month = "04");
+    } else if (stringDate.search("May") >= 0) {
+      return (month = "05");
+    } else if (stringDate.search("Jun") >= 0) {
+      return (month = "06");
+    } else if (stringDate.search("Jul") >= 0) {
+      return (month = "07");
+    } else if (stringDate.search("Aug") >= 0) {
+      return (month = "08");
+    } else if (stringDate.search("Sep") >= 0) {
+      return (month = "09");
+    } else if (stringDate.search("Oct") >= 0) {
+      return (month = "10");
+    } else if (stringDate.search("Nov") >= 0) {
+      return (month = "11");
+    } else if (stringDate.search("Dec") >= 0) {
+      return (month = "12");
+    }
+  }
+
+  function findDay(stringDate) {
+    return (day = stringDate.slice(8, 10));
+  }
+
+  function findYear(stringDate) {
+    return (year = stringDate.slice(11, 16));
+  }
+  // Use effect method
+  useEffect(() => {
+    console.log(`${month}/${day}/${year}`);
+  }, [month, day, year]);
 
   return (
     <div className="container">
