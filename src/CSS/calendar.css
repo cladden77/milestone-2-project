@@ -14,7 +14,7 @@
 /* Selected Day & Hovering Day*/
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
-    background: #f8f8fa;
+    background: #9b85e4;
     color: #6f48eb;
    }
 
@@ -52,9 +52,11 @@
 } 
 
 .availableTime button{
+    font-size: smaller;
     text-align: center;
     background-color: #af99fa;
-    border-radius: 1em;
+    border-radius: 10px;
+    margin: .25em;
 } 
 
 
@@ -72,3 +74,7 @@ color: red;
     color:rgb(86, 86, 86);
     background-color: #8f82b8;
 }
+
+.react-calendar__navigation__arrow:hover {
+    color: #6f48eb;
+   }
