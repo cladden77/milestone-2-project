@@ -3,7 +3,6 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "../CSS/calendar.css";
 import { useEffect } from "react";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 function CalendarView(props) {
   const [date, setDate] = useState(new Date());
@@ -66,7 +65,7 @@ function CalendarView(props) {
   // Use effect method
   useEffect(() => {
     props.setDate(`${year}-${month}-${day}`);
-  }, [month, day, year]);
+  }, [month, day, year, props]);
 
   return (
     <div className="container">
