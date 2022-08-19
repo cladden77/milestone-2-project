@@ -54,9 +54,8 @@
 .availableTime button{
     font-size: smaller;
     text-align: center;
-    background-color: #af99fa;
     border-radius: 10px;
-    margin: .25em;
+    margin: .5em;
 } 
 
 
@@ -78,3 +77,13 @@ color: red;
 .react-calendar__navigation__arrow:hover {
     color: #6f48eb;
    }
+
+.active{
+    background-color: #6f48eb;
+    color: white;
+    font-weight: bolder;
+}
+
+.notActive{
+    background-color: #af99fa;
+}

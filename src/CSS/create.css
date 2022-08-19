@@ -1,25 +1,23 @@
-/* #date{
-    pointer-events: none;
+#date {
+  pointer-events: none;
 }
 
-#time{
-    pointer-events: none;
-} */
-
-
-
-.group{
-    display: flex;
-    justify-content: center;
+#time {
+  pointer-events: none;
 }
 
-.form-group{
-    text-align: center;
-    margin: .25em;
+.group {
+  display: flex;
+  justify-content: center;
 }
 
-input{
-    width: 25%;
-    text-align: center;
-    display: flex;
+.form-group {
+  text-align: center;
+  margin: 0.25em;
+}
+
+input {
+  width: 25%;
+  text-align: center;
+  display: flex;
 }
