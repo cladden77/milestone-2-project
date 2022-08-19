@@ -64,7 +64,7 @@ function CalendarView(props) {
   }
   // Use effect method
   useEffect(() => {
-    props.setDate(`${year}-${month}-${day}`);
+    props.setSelectedDate(`${year}-${month}-${day}`);
   }, [month, day, year, props]);
 
   return (
@@ -85,38 +85,47 @@ function CalendarView(props) {
             </p>
             {weekend ? (
               <div>
-                <h5 className="text-center">Selecet a time below</h5>
+                <h5 className="text-center">Select a time below</h5>
                 <div className="availableTime">
-                  <button id="eightAM" onClick={() => props.setTime("08:00")}>
+                  <button
+                    id="eightAM"
+                    onClick={() => props.setTime("08:00 AM")}
+                  >
                     8:00 AM
                   </button>
-                  <button id="nineAM" onClick={() => props.setTime("09:00")}>
+                  <button id="nineAM" onClick={() => props.setTime("09:00 AM")}>
                     9:00 AM
                   </button>
-                  <button id="tenAM" onClick={() => props.setTime("10:00")}>
+                  <button id="tenAM" onClick={() => props.setTime("10:00 AM")}>
                     10:00 AM
                   </button>
-                  <button id="elevenAM" onClick={() => props.setTime("11:00")}>
+                  <button
+                    id="elevenAM"
+                    onClick={() => props.setTime("11:00 AM")}
+                  >
                     11:00 AM
                   </button>
-                  <button id="twelveAM" onClick={() => props.setTime("12:00")}>
+                  <button
+                    id="twelveAM"
+                    onClick={() => props.setTime("12:00 AM")}
+                  >
                     12:00 PM
                   </button>
                 </div>
                 <div className="availableTime">
-                  <button id="onePM" onClick={() => props.setTime("13:00")}>
+                  <button id="onePM" onClick={() => props.setTime("1:00 PM")}>
                     1:00 PM
                   </button>
-                  <button id="twoPM" onClick={() => props.setTime("14:00")}>
+                  <button id="twoPM" onClick={() => props.setTime("2:00 PM")}>
                     2:00 PM
                   </button>
-                  <button id="threePM" onClick={() => props.setTime("15:00")}>
+                  <button id="threePM" onClick={() => props.setTime("3:00 PM")}>
                     3:00 PM
                   </button>
-                  <button id="fourPM" onClick={() => props.setTime("16:00")}>
+                  <button id="fourPM" onClick={() => props.setTime("4:00 PM")}>
                     4:00 PM
                   </button>
-                  <button id="fivePM" onClick={() => props.setTime("17:00")}>
+                  <button id="fivePM" onClick={() => props.setTime("5:00 PM")}>
                     5:00 PM
                   </button>
                 </div>
