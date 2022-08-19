@@ -11,8 +11,10 @@ export default function Create() {
     time: "",
   });
 
-  const [selectedDate, setSelectedDate] = useState(null);
+  var disabled = true;
 
+  const [selectedDate, setSelectedDate] = useState(null);
+  var [weekend, setWeekend] = useState(true);
   const [selectedTime, setTime] = useState(null);
 
   const navigate = useNavigate();
@@ -55,14 +57,19 @@ export default function Create() {
   // This following section will display the form that takes the input from the user.
   return (
     <div>
-      <CalendarView setSelectedDate={setSelectedDate} setTime={setTime} />
+      <CalendarView
+        setSelectedDate={setSelectedDate}
+        setTime={setTime}
+        setWeekend={setWeekend}
+        weekend={weekend}
+      />
       <form onSubmit={onSubmit}>
-        
-        <div className="form-group my-5">
+        <div className="form-group my-3">
           <input
             type="submit"
             value="Create appointment"
             className="btn btn-primary"
+            disabled={!weekend}
           />
         </div>
       </form>

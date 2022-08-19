@@ -6,8 +6,8 @@ import { useEffect } from "react";
 
 function CalendarView(props) {
   const [date, setDate] = useState(new Date());
+  const [active, setActive] = useState("");
   // Day var
-  var [weekend, setWeekend] = useState(true);
   var [month, setMonth] = useState(null);
   var [day, setDay] = useState(null);
   var [year, setYear] = useState(null);
@@ -18,12 +18,12 @@ function CalendarView(props) {
       stringDate.startsWith("Sun") === true ||
       stringDate.startsWith("Sat") === true
     ) {
-      setWeekend(false);
+      props.setWeekend(false);
     } else {
       setMonth(findMonth(stringDate));
       setDay(findDay(stringDate));
       setYear(findYear(stringDate));
-      setWeekend(true);
+      props.setWeekend(true);
     }
   }
 
@@ -83,40 +83,100 @@ function CalendarView(props) {
             <p className="text-center">
               <span className="bold">Selected Date:</span> {date.toDateString()}
             </p>
-            {weekend ? (
+            {props.weekend ? (
               <div>
                 <h5 className="text-center">Select a time below</h5>
                 <div className="availableTime">
-                  <button id="eightAM" onClick={() => props.setTime("08:00 AM")}>
+                  <button
+                    className={active === "1" ? "active" : "notActive"}
+                    onClick={() => {
+                      setActive("1");
+                      props.setTime("08:00 AM");
+                    }}
+                  >
                     8:00 AM
                   </button>
-                  <button id="nineAM" onClick={() => props.setTime("09:00 AM")}>
+                  <button
+                    className={active === "2" ? "active" : "notActive"}
+                    onClick={() => {
+                      setActive("2");
+                      props.setTime("09:00 AM");
+                    }}
+                  >
                     9:00 AM
                   </button>
-                  <button id="tenAM" onClick={() => props.setTime("10:00 AM")}>
+                  <button
+                    className={active === "3" ? "active" : "notActive"}
+                    onClick={() => {
+                      setActive("3");
+                      props.setTime("10:00 AM");
+                    }}
+                  >
                     10:00 AM
                   </button>
-                  <button id="elevenAM" onClick={() => props.setTime("11:00 AM")}>
+                  <button
+                    className={active === "4" ? "active" : "notActive"}
+                    onClick={() => {
+                      setActive("4");
+                      props.setTime("11:00 AM");
+                    }}
+                  >
                     11:00 AM
                   </button>
-                  <button id="twelveAM" onClick={() => props.setTime("12:00 AM")}>
+                  <button
+                    className={active === "5" ? "active" : "notActive"}
+                    onClick={() => {
+                      setActive("5");
+                      props.setTime("12:00 AM");
+                    }}
+                  >
                     12:00 PM
                   </button>
                 </div>
                 <div className="availableTime">
-                  <button id="onePM" onClick={() => props.setTime("1:00 PM")}>
+                  <button
+                    className={active === "6" ? "active" : "notActive"}
+                    onClick={() => {
+                      setActive("6");
+                      props.setTime("01:00 PM");
+                    }}
+                  >
                     1:00 PM
                   </button>
-                  <button id="twoPM" onClick={() => props.setTime("2:00 PM")}>
+                  <button
+                    className={active === "7" ? "active" : "notActive"}
+                    onClick={() => {
+                      setActive("7");
+                      props.setTime("02:00 PM");
+                    }}
+                  >
                     2:00 PM
                   </button>
-                  <button id="threePM" onClick={() => props.setTime("3:00 PM")}>
+                  <button
+                    className={active === "8" ? "active" : "notActive"}
+                    onClick={() => {
+                      setActive("8");
+                      props.setTime("03:00 PM");
+                    }}
+                  >
                     3:00 PM
                   </button>
-                  <button id="fourPM" onClick={() => props.setTime("4:00 PM")}>
+                  <button
+                    className={active === "9" ? "active" : "notActive"}
+                    onClick={() => {
+                      setActive("9");
+                      props.setTime("04:00 PM");
+                    }}
+                  >
                     4:00 PM
                   </button>
-                  <button id="fivePM" onClick={() => props.setTime("5:00 PM")}>
+                  <button
+                    className={active === "10" ? "active" : "notActive"}
+                    onClick={() => {
+                      setActive("10");
+                      props.setTime("05:00 PM");
+                    }}
+                  >
                     5:00 PM
                   </button>
                 </div>
