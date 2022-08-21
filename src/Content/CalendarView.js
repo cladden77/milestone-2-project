@@ -14,6 +14,7 @@ function CalendarView(props) {
   var [year, setYear] = useState(null);
   var [today, setToday] = useState(new Date());
 
+  const [data, setData] = useState(null);
   // Checks for weekend
   function onClickDay(date) {
     if (date.getDay() === 0 || date.getDay() === 6) {
@@ -44,7 +45,101 @@ function CalendarView(props) {
   useEffect(() => {
     props.setSelectedDate(`${year}-${month}-${day}`);
     props.setFutureDate(checksToday());
-  }, [month, day, year, props]);
+    fetch(`http://localhost:3000/appointment/`)
+      .then((responce) => {
+        if (responce.ok) {
+          return responce.json();
+        }
+        throw responce;
+      })
+      .then((data) => {
+        setData(data);
+        checkAvailability();
+      });
+  }, [month, year, day, props]);
+
+  //Functionality Works but needs worked on
+
+  function checkAvailability(string) {
+    reset();
+    if (data != null) {
+      for (var i = 0; i < data.length; i++) {
+        let selectedElement = document.getElementById(data[i].time);
+        if (props.selectedDate === data[i].date) {
+          if (selectedElement === null) {
+            return;
+          } else {
+            selectedElement.classList.add("takenTime");
+          }
+        }
+      }
+    } else {
+      return;
+    }
+  }
+
+  function reset() {
+    let a = document.getElementById("08:00_AM");
+    let b = document.getElementById("09:00_AM");
+    let c = document.getElementById("10:00_AM");
+    let d = document.getElementById("11:00_AM");
+    let e = document.getElementById("12:00_PM");
+    let f = document.getElementById("01:00_PM");
+    let g = document.getElementById("02:00_PM");
+    let h = document.getElementById("03:00_PM");
+    let i = document.getElementById("04:00_PM");
+    let j = document.getElementById("05:00_PM");
+    if (a === null) {
+      return;
+    } else {
+      a.classList.remove("takenTime");
+    }
+    if (b === null) {
+      return;
+    } else {
+      b.classList.remove("takenTime");
+    }
+    if (c === null) {
+      return;
+    } else {
+      c.classList.remove("takenTime");
+    }
+    if (d === null) {
+      return;
+    } else {
+      d.classList.remove("takenTime");
+    }
+    if (e === null) {
+      return;
+    } else {
+      e.classList.remove("takenTime");
+    }
+    if (f === null) {
+      return;
+    } else {
+      f.classList.remove("takenTime");
+    }
+    if (g === null) {
+      return;
+    } else {
+      g.classList.remove("takenTime");
+    }
+    if (h === null) {
+      return;
+    } else {
+      h.classList.remove("takenTime");
+    }
+    if (i === null) {
+      return;
+    } else {
+      i.classList.remove("takenTime");
+    }
+    if (j === null) {
+      return;
+    } else {
+      j.classList.remove("takenTime");
+    }
+  }
 
   return (
     <div className="container">
@@ -72,46 +167,66 @@ function CalendarView(props) {
                         </h5>
                         <div className="availableTime">
                           <button
-                            className={active === "1" ? "active" : "notActive"}
+                            type="button"
+                            id={"08:00_AM"}
+                            className={`button ${
+                              active === "1" ? "active" : "notActive"
+                            }`}
                             onClick={() => {
                               setActive("1");
-                              props.setTime("08:00 AM");
+                              props.setTime("08:00_AM");
                             }}
                           >
                             8:00 AM
                           </button>
                           <button
-                            className={active === "2" ? "active" : "notActive"}
+                            type="button"
+                            id={"09:00_AM"}
+                            className={`button ${
+                              active === "2" ? "active" : "notActive"
+                            }`}
                             onClick={() => {
                               setActive("2");
-                              props.setTime("09:00 AM");
+                              props.setTime("09:00_AM");
                             }}
                           >
                             9:00 AM
                           </button>
                           <button
-                            className={active === "3" ? "active" : "notActive"}
+                            type="button"
+                            id={"10:00_AM"}
+                            className={`button ${
+                              active === "3" ? "active" : "notActive"
+                            }`}
                             onClick={() => {
                               setActive("3");
-                              props.setTime("10:00 AM");
+                              props.setTime("10:00_AM");
                             }}
                           >
                             10:00 AM
                           </button>
                           <button
-                            className={active === "4" ? "active" : "notActive"}
+                            type="button"
+                            id={"11:00_AM"}
+                            className={`button ${
+                              active === "4" ? "active" : "notActive"
+                            }`}
                             onClick={() => {
                               setActive("4");
-                              props.setTime("11:00 AM");
+                              props.setTime("11:00_AM");
                             }}
                           >
                             11:00 AM
                           </button>
                           <button
-                            className={active === "5" ? "active" : "notActive"}
+                            type="button"
+                            id={"12:00_PM"}
+                            className={`button ${
+                              active === "5" ? "active" : "notActive"
+                            }`}
                             onClick={() => {
                               setActive("5");
-                              props.setTime("12:00 PM");
+                              props.setTime("12:00_PM");
                             }}
                           >
                             12:00 PM
@@ -119,46 +234,66 @@ function CalendarView(props) {
                         </div>
                         <div className="availableTime">
                           <button
-                            className={active === "6" ? "active" : "notActive"}
+                            type="button"
+                            id={"01:00_PM"}
+                            className={`button ${
+                              active === "6" ? "active" : "notActive"
+                            }`}
                             onClick={() => {
                               setActive("6");
-                              props.setTime("01:00 PM");
+                              props.setTime("01:00_PM");
                             }}
                           >
                             1:00 PM
                           </button>
                           <button
-                            className={active === "7" ? "active" : "notActive"}
+                            type="button"
+                            id={"02:00_PM"}
+                            className={`button ${
+                              active === "7" ? "active" : "notActive"
+                            }`}
                             onClick={() => {
                               setActive("7");
-                              props.setTime("02:00 PM");
+                              props.setTime("02:00_PM");
                             }}
                           >
                             2:00 PM
                           </button>
                           <button
-                            className={active === "8" ? "active" : "notActive"}
+                            type="button"
+                            id={"03:00_PM"}
+                            className={`button ${
+                              active === "8" ? "active" : "notActive"
+                            }`}
                             onClick={() => {
                               setActive("8");
-                              props.setTime("03:00 PM");
+                              props.setTime("03:00_PM");
                             }}
                           >
                             3:00 PM
                           </button>
                           <button
-                            className={active === "9" ? "active" : "notActive"}
+                            type="button"
+                            id={"04:00_PM"}
+                            className={`button ${
+                              active === "9" ? "active" : "notActive"
+                            }`}
                             onClick={() => {
                               setActive("9");
-                              props.setTime("04:00 PM");
+                              props.setTime("04:00_PM");
                             }}
                           >
                             4:00 PM
                           </button>
                           <button
-                            className={active === "10" ? "active" : "notActive"}
+                            type="button"
+                            id={"04:00_PM"}
+                            className={`button ${
+                              active === "10" ? "active" : "notActive"
+                            }`}
                             onClick={() => {
                               setActive("10");
-                              props.setTime("5:00 PM");
+                              props.setTime("05:00_PM");
                             }}
                           >
                             5:00 PM

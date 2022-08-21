@@ -12,7 +12,7 @@ export default function Create() {
   });
 
   const [selectedDate, setSelectedDate] = useState(null);
-  const [weekend, setWeekend] = useState(true);
+  const [weekend, setWeekend] = useState(false);
   const [selectedTime, setTime] = useState(null);
   const [futureDate, setFutureDate] = useState(true);
 
@@ -59,7 +59,9 @@ export default function Create() {
     <div>
       <CalendarView
         setSelectedDate={setSelectedDate}
+        selectedDate={selectedDate}
         setTime={setTime}
+        selectedTime={selectedTime}
         setWeekend={setWeekend}
         weekend={weekend}
         setFutureDate={setFutureDate}
