@@ -59,117 +59,124 @@ function CalendarView(props) {
                 onClickDay={onClickDay}
               />
             </div>
-            {/* if ture shows code , else showes other */}
-            {props.futureDate ? (
+            {props.showConfirm ? null : (
               <div>
-                {props.weekend ? (
+                {/* if ture shows code , else showes other */}
+                {props.futureDate ? (
                   <div>
-                    <h5 className="text-center my-1">Select a time below</h5>
-                    <div className="availableTime">
-                      <button
-                        className={active === "1" ? "active" : "notActive"}
-                        onClick={() => {
-                          setActive("1");
-                          props.setTime("08:00 AM");
-                        }}
-                      >
-                        8:00 AM
-                      </button>
-                      <button
-                        className={active === "2" ? "active" : "notActive"}
-                        onClick={() => {
-                          setActive("2");
-                          props.setTime("09:00 AM");
-                        }}
-                      >
-                        9:00 AM
-                      </button>
-                      <button
-                        className={active === "3" ? "active" : "notActive"}
-                        onClick={() => {
-                          setActive("3");
-                          props.setTime("10:00 AM");
-                        }}
-                      >
-                        10:00 AM
-                      </button>
-                      <button
-                        className={active === "4" ? "active" : "notActive"}
-                        onClick={() => {
-                          setActive("4");
-                          props.setTime("11:00 AM");
-                        }}
-                      >
-                        11:00 AM
-                      </button>
-                      <button
-                        className={active === "5" ? "active" : "notActive"}
-                        onClick={() => {
-                          setActive("5");
-                          props.setTime("12:00 AM");
-                        }}
-                      >
-                        12:00 PM
-                      </button>
-                    </div>
-                    <div className="availableTime">
-                      <button
-                        className={active === "6" ? "active" : "notActive"}
-                        onClick={() => {
-                          setActive("6");
-                          props.setTime("01:00 PM");
-                        }}
-                      >
-                        1:00 PM
-                      </button>
-                      <button
-                        className={active === "7" ? "active" : "notActive"}
-                        onClick={() => {
-                          setActive("7");
-                          props.setTime("02:00 PM");
-                        }}
-                      >
-                        2:00 PM
-                      </button>
-                      <button
-                        className={active === "8" ? "active" : "notActive"}
-                        onClick={() => {
-                          setActive("8");
-                          props.setTime("03:00 PM");
-                        }}
-                      >
-                        3:00 PM
-                      </button>
-                      <button
-                        className={active === "9" ? "active" : "notActive"}
-                        onClick={() => {
-                          setActive("9");
-                          props.setTime("04:00 PM");
-                        }}
-                      >
-                        4:00 PM
-                      </button>
-                      <button
-                        className={active === "10" ? "active" : "notActive"}
-                        onClick={() => {
-                          setActive("10");
-                          props.setTime("5:00 PM");
-                        }}
-                      >
-                        5:00 PM
-                      </button>
-                    </div>
+                    {props.weekend ? (
+                      <div>
+                        <h5 className="text-center my-1">
+                          Select a time below
+                        </h5>
+                        <div className="availableTime">
+                          <button
+                            className={active === "1" ? "active" : "notActive"}
+                            onClick={() => {
+                              setActive("1");
+                              props.setTime("08:00 AM");
+                            }}
+                          >
+                            8:00 AM
+                          </button>
+                          <button
+                            className={active === "2" ? "active" : "notActive"}
+                            onClick={() => {
+                              setActive("2");
+                              props.setTime("09:00 AM");
+                            }}
+                          >
+                            9:00 AM
+                          </button>
+                          <button
+                            className={active === "3" ? "active" : "notActive"}
+                            onClick={() => {
+                              setActive("3");
+                              props.setTime("10:00 AM");
+                            }}
+                          >
+                            10:00 AM
+                          </button>
+                          <button
+                            className={active === "4" ? "active" : "notActive"}
+                            onClick={() => {
+                              setActive("4");
+                              props.setTime("11:00 AM");
+                            }}
+                          >
+                            11:00 AM
+                          </button>
+                          <button
+                            className={active === "5" ? "active" : "notActive"}
+                            onClick={() => {
+                              setActive("5");
+                              props.setTime("12:00 PM");
+                            }}
+                          >
+                            12:00 PM
+                          </button>
+                        </div>
+                        <div className="availableTime">
+                          <button
+                            className={active === "6" ? "active" : "notActive"}
+                            onClick={() => {
+                              setActive("6");
+                              props.setTime("01:00 PM");
+                            }}
+                          >
+                            1:00 PM
+                          </button>
+                          <button
+                            className={active === "7" ? "active" : "notActive"}
+                            onClick={() => {
+                              setActive("7");
+                              props.setTime("02:00 PM");
+                            }}
+                          >
+                            2:00 PM
+                          </button>
+                          <button
+                            className={active === "8" ? "active" : "notActive"}
+                            onClick={() => {
+                              setActive("8");
+                              props.setTime("03:00 PM");
+                            }}
+                          >
+                            3:00 PM
+                          </button>
+                          <button
+                            className={active === "9" ? "active" : "notActive"}
+                            onClick={() => {
+                              setActive("9");
+                              props.setTime("04:00 PM");
+                            }}
+                          >
+                            4:00 PM
+                          </button>
+                          <button
+                            className={active === "10" ? "active" : "notActive"}
+                            onClick={() => {
+                              setActive("10");
+                              props.setTime("5:00 PM");
+                            }}
+                          >
+                            5:00 PM
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <h4 className="text-center">
+                        We are not open on weekends, sorry for inconvenience.
+                      </h4>
+                    )}
                   </div>
                 ) : (
                   <h4 className="text-center">
-                    We are not open on weekends, sorry for inconvenience.
+                    Sorry, You can not book on past dates OR do same day
+                    booking.
                   </h4>
                 )}
               </div>
-            ) : (
-              <h4 className="text-center">
-                Sorry, You can not book on past dates OR do same day booking.
-              </h4>
             )}
           </div>
         </div>
