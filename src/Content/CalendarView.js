@@ -54,6 +54,7 @@ function CalendarView(props) {
             <h1 className="text-center">Schedule an Appointment Below:</h1>
             <div className="calendar-container">
               <Calendar
+                className={props.showConfirm ? "noClick" : null}
                 onChange={setDate}
                 value={date}
                 onClickDay={onClickDay}

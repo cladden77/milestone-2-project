@@ -87,3 +87,7 @@ color: red;
 .notActive{
     background-color: #af99fa;
 }
+
+.noClick{
+    pointer-events: none;
+}
