@@ -91,3 +91,8 @@ color: red;
 .noClick{
     pointer-events: none;
 }
+
+.takenTime{
+    pointer-events: none;
+    background-color: grey;
+}
