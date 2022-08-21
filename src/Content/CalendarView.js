@@ -26,7 +26,7 @@ function CalendarView(props) {
     setMonth(month);
     year = date.getFullYear();
     setYear(year);
-    day = (date.getDate() + 1).toString().padStart(2, "0");
+    day = (date.getDate()).toString().padStart(2, "0");
     setDay(day);
   }
 

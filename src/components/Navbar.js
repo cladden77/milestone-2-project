@@ -43,7 +43,7 @@ function Navbar() {
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="/Packages">Packages</MDBNavbarLink>
+                <MDBNavbarLink href="/appointment/add">Schedule</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink href="/Gallery">Gallery</MDBNavbarLink>
