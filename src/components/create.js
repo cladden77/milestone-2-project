@@ -14,9 +14,16 @@ export default function Create() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [weekend, setWeekend] = useState(true);
   const [selectedTime, setTime] = useState(null);
-  var [futureDate, setFutureDate] = useState(true);
+  const [futureDate, setFutureDate] = useState(true);
+
+  const [showConfirm, setShowConfirm] = useState(false);
 
   const navigate = useNavigate();
+
+  const handleConfirm = (e) => {
+    e.preventDefault();
+    setShowConfirm(!showConfirm);
+  };
 
   useEffect(() => {
     setForm({
@@ -28,7 +35,7 @@ export default function Create() {
   // This function will handle the submission.
   async function onSubmit(e) {
     e.preventDefault();
-
+    setShowConfirm(!showConfirm);
     // When a post request is sent to the create url, we'll add a new record to the database.
     const newAppointment = { ...form };
 
@@ -52,23 +59,42 @@ export default function Create() {
     <div>
       <CalendarView
         setSelectedDate={setSelectedDate}
-        selectedTime={selectedTime}
         setTime={setTime}
         setWeekend={setWeekend}
         weekend={weekend}
         setFutureDate={setFutureDate}
         futureDate={futureDate}
+        showConfirm={showConfirm}
       />
-      <form onSubmit={onSubmit}>
-        <div className="form-group my-3">
-          <input
-            type="submit"
-            value="Create appointment"
-            className="btn btn-primary"
-            disabled={!weekend || !futureDate || !selectedTime || !selectedDate}
-          />
+      {showConfirm ? (
+        <div className="text-center">
+          <br />
+          <p>
+            Are you sure want to book your apointment on:{" "}
+            <span className="selected">{selectedDate}</span> at{" "}
+            <span className="selected">{selectedTime}</span>?
+          </p>
+          <button className="btn btn-primary" onClick={onSubmit}>
+            Yes
+          </button>
+          <button className="btn btn-primary" onClick={handleConfirm}>
+            No
+          </button>
         </div>
-      </form>
+      ) : (
+        <form onSubmit={handleConfirm}>
+          <div className="form-group my-3">
+            <input
+              type="submit"
+              value="Create appointment"
+              className="btn btn-primary"
+              disabled={
+                !weekend || !futureDate || !selectedTime || !selectedDate
+              }
+            />
+          </div>
+        </form>
+      )}
     </div>
   );
 }
