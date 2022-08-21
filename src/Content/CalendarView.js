@@ -153,7 +153,7 @@ function CalendarView(props) {
                         className={active === "10" ? "active" : "notActive"}
                         onClick={() => {
                           setActive("10");
-                          props.setTime("05:00 PM");
+                          props.setTime("5:00 PM");
                         }}
                       >
                         5:00 PM
