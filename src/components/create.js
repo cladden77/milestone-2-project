@@ -12,23 +12,19 @@ export default function Create() {
   });
 
   const [selectedDate, setSelectedDate] = useState(null);
-
+  const [weekend, setWeekend] = useState(true);
   const [selectedTime, setTime] = useState(null);
+  var [futureDate, setFutureDate] = useState(true);
 
   const navigate = useNavigate();
 
-  // These methods will update the state properties.
-  // function updateForm(value) {
-  //   return setForm((prev) => {
-  //     return { ...prev, ...value };
-  //   });
-  // }
   useEffect(() => {
     setForm({
       date: selectedDate,
       time: selectedTime,
     });
-  }, [selectedDate, selectedTime]);
+    console.log(selectedDate);
+  }, [selectedDate, selectedTime, futureDate]);
 
   // This function will handle the submission.
   async function onSubmit(e) {
@@ -55,14 +51,21 @@ export default function Create() {
   // This following section will display the form that takes the input from the user.
   return (
     <div>
-      <CalendarView setSelectedDate={setSelectedDate} setTime={setTime} />
+      <CalendarView
+        setSelectedDate={setSelectedDate}
+        setTime={setTime}
+        setWeekend={setWeekend}
+        weekend={weekend}
+        setFutureDate={setFutureDate}
+        futureDate={futureDate}
+      />
       <form onSubmit={onSubmit}>
-        
-        <div className="form-group my-5">
+        <div className="form-group my-3">
           <input
             type="submit"
             value="Create appointment"
             className="btn btn-primary"
+            disabled={!weekend || !futureDate}
           />
         </div>
       </form>
