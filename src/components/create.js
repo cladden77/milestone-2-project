@@ -11,26 +11,20 @@ export default function Create() {
     time: "",
   });
 
-  var disabled = true;
-
   const [selectedDate, setSelectedDate] = useState(null);
-  var [weekend, setWeekend] = useState(true);
+  const [weekend, setWeekend] = useState(true);
   const [selectedTime, setTime] = useState(null);
+  var [futureDate, setFutureDate] = useState(true);
 
   const navigate = useNavigate();
 
-  // These methods will update the state properties.
-  // function updateForm(value) {
-  //   return setForm((prev) => {
-  //     return { ...prev, ...value };
-  //   });
-  // }
   useEffect(() => {
     setForm({
       date: selectedDate,
       time: selectedTime,
     });
-  }, [selectedDate, selectedTime]);
+    console.log(selectedDate);
+  }, [selectedDate, selectedTime, futureDate]);
 
   // This function will handle the submission.
   async function onSubmit(e) {
@@ -62,6 +56,8 @@ export default function Create() {
         setTime={setTime}
         setWeekend={setWeekend}
         weekend={weekend}
+        setFutureDate={setFutureDate}
+        futureDate={futureDate}
       />
       <form onSubmit={onSubmit}>
         <div className="form-group my-3">
@@ -69,7 +65,7 @@ export default function Create() {
             type="submit"
             value="Create appointment"
             className="btn btn-primary"
-            disabled={!weekend}
+            disabled={!weekend || !futureDate}
           />
         </div>
       </form>
