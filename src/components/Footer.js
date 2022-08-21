@@ -12,10 +12,10 @@ function Footer() {
         className="text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
-        &copy; {new Date().getFullYear()} Copyright:{" "}
-        <a className="text-white" href="https://milestone-2-project-hxc2qnrjn-cladden77.vercel.app/">
-          JDPC Established 2022
-        </a>
+        <span className="text-white">
+          {" "}
+          {new Date().getFullYear()} Copyright &copy; JDPC Established 2022
+        </span>
       </div>
     </MDBFooter>
   );
