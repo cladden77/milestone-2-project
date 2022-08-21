@@ -18,8 +18,8 @@ function Hero() {
           <div className="text-white">
             <h1 className="mb-3">Heading</h1>
             <h4 className="mb-3">Subheading</h4>
-            <MDBBtn href="/Packages" tag="a">
-              View Detailing Packages
+            <MDBBtn href="/Appointment/add" tag="a">
+              Book Appointment
             </MDBBtn>
           </div>
         </div>
