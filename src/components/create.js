@@ -23,7 +23,6 @@ export default function Create() {
       date: selectedDate,
       time: selectedTime,
     });
-    console.log(selectedDate);
   }, [selectedDate, selectedTime, futureDate]);
 
   // This function will handle the submission.
@@ -53,6 +52,7 @@ export default function Create() {
     <div>
       <CalendarView
         setSelectedDate={setSelectedDate}
+        selectedTime={selectedTime}
         setTime={setTime}
         setWeekend={setWeekend}
         weekend={weekend}
@@ -65,7 +65,7 @@ export default function Create() {
             type="submit"
             value="Create appointment"
             className="btn btn-primary"
-            disabled={!weekend || !futureDate}
+            disabled={!weekend || !futureDate || !selectedTime || !selectedDate}
           />
         </div>
       </form>
