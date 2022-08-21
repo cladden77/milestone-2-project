@@ -163,7 +163,7 @@ function CalendarView(props) {
                     {props.weekend ? (
                       <div>
                         <h5 className="text-center my-1">
-                          Select a time below
+                          Please select an available time below:
                         </h5>
                         <div className="availableTime">
                           <button
