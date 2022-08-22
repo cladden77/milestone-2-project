@@ -9,16 +9,18 @@ import jwt from 'jsonwebtoken';
 
 const secret = 'secret123';
 
-await mongoose.connect('mongodb+srv://userdb:<password>@atlascluster.x7zogyl.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser:true, useUnifiedTopology:true});
-const db = mongoose.connection;
-db.on('error', console.log);
+mongoose.connect(`mongodb+srv://userdb:6UPDkkf47u9mrqHy@atlascluster.x7zogyl.mongodb.net/?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("Database is connected! Listening to localhost 3000");
+  })
+  .catch((err) => console.log(err));
 
 const app = express();
 app.use(cookieParser());
 app.use(bodyParser.json({extended:true}));
 app.use(cors({
   credentials:true,
-  origin: 'http://localhost:3000',
+  origin: 'http://localhost:3001',
 }));
 
 app.get('/', (req, res) => {

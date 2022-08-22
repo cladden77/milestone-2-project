@@ -27,14 +27,20 @@ function Login() {
   }
 
   return (
+    <div className="my-5">
     <form action="" onSubmit={e => loginUser(e)}>
       {loginError && (
         <div>LOGIN ERROR! WRONG EMAIL OR PASSWORD!</div>
       )}
-      <input type="email" placeholder="email" value={email} onChange={e => setEmail(e.target.value)}/><br />
-      <input type="password" placeholder="password" value={password} onChange={e => setPassword(e.target.value)}/><br />
+      <div className="my-3">
+      <input type="email" placeholder="email" value={email} onChange={e => setEmail(e.target.value)}/>
+      </div>
+      <div className="mb-3">
+      <input type="password" placeholder="password" value={password} onChange={e => setPassword(e.target.value)}/>
+      </div>
       <button type="submit">log in</button>
     </form>
+    </div>
   );
 }
 

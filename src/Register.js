@@ -22,11 +22,17 @@ function Register() {
   }
 
   return (
+    <div className="my-5">
     <form action="" onSubmit={e => registerUser(e)}>
-      <input type="email" placeholder="email" value={email} onChange={e => setEmail(e.target.value)}/><br />
-      <input type="password" placeholder="password" value={password} onChange={e => setPassword(e.target.value)}/><br />
+      <div className="my-3">
+      <input type="email" placeholder="email" value={email} onChange={e => setEmail(e.target.value)}/>
+      </div>
+      <div className="mb-3">
+      <input type="password" placeholder="password" value={password} onChange={e => setPassword(e.target.value)}/>
+      </div>
       <button type="submit">register</button>
     </form>
+    </div>
   );
 }
 

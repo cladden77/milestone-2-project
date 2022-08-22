@@ -1,59 +1,58 @@
 import './App.css';
 import {BrowserRouter, Route, Routes, Link} from "react-router-dom";
 import {useState,useEffect} from 'react';
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
 import Register from "./Register";
 import UserContext from "./UserContext";
 import axios from "axios";
 import Login from "./Login";
+import Navbar from "./components/Navbar"
 
 function App() {
   const [email,setEmail] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:3000/user', {withCredentials:true})
+    axios.get('http://localhost:4000/user', {withCredentials:true})
       .then(response => {
         setEmail(response.data.email);
       });
   }, []);
 
   function logout() {
-    axios.post('http://localhost:3000/logout', {}, {withCredentials:true})
+    axios.post('http://localhost:4000/logout', {}, {withCredentials:true})
       .then(() => setEmail(''));
   }
 
   return (
-    <main className="App">
-      <BrowserRouter>
+    <div className="App">
       <Navbar />
-      <Hero />
-    <UserContext.Provider value={{email,setEmail}}>
-        <div>
-          {!!email && (
+      <div className="Container my-5">
+        <UserContext.Provider value={{email,setEmail}}>
+          <BrowserRouter>
             <div>
-              Logged in as {email}
-              <button onClick={() => logout()}>Log out</button>
+              {!!email && (
+                <div>
+                  Logged in as {email}
+                  <button onClick={() => logout()}>Log out</button>
+                </div>
+              )}
+              {!email && (
+                <div>Not logged in</div>
+              )}
             </div>
-          )}
-          {!email && (
-            <div>Not logged in</div>
-          )}
-        </div>
-        <hr/>
-        <div>
-          <Link to={'/'}>Home</Link> |
-          <Link to={'/login'}>Login</Link> |
-          <Link to={'/register'}>Register</Link>
-        </div>
-        <Routes>
-          <Route path={'/register'} element={<Register/>} />
-          <Route path={'/login'} element={<Login/>} />
-        </Routes>
-        <hr/>
-    </UserContext.Provider>
-    </BrowserRouter>
-    </main>
+            <hr/>
+            <div>
+              <Link to={'/login'}>Login</Link> | 
+              <Link to={'/register'}> Register</Link>
+            </div>
+            <Routes>
+              <Route path={'/register'} element={<Register/>} />
+              <Route path={'/login'} element={<Login/>} />
+            </Routes>
+            <hr/>
+          </BrowserRouter>
+        </UserContext.Provider>
+      </div>
+    </div>
   );
 }
 

@@ -13,16 +13,14 @@ code {
 }
 
 /* Just default color feel free to edit to your liking */
-/* important setting to make sure bootstrap doesnt format it different than what we set it to */
+/* important setting to make sure bootstrap doesn't format it different than what we set it to */
 .navbar{
-  background-color: blueviolet !important;
+  background-color: #301934!important;
 }
+
 .navbar-brand{
   color: chartreuse;
 }
 .nav-link{
   color: white !important;
-}
-#navbar-nav{
-  margin-right: auto !important;
 }
