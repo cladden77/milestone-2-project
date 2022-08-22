@@ -1,35 +1,60 @@
-import React from "react";
-
-// We use Route in order to define the different routes of our application
-import { Route, Routes } from "react-router-dom";
-
-// We import all the components we need in our app
+import './App.css';
+import {BrowserRouter, Route, Routes, Link} from "react-router-dom";
+import {useState,useEffect} from 'react';
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import AppointmentList from "./components/appointmentList";
-import Edit from "./components/edit";
-import Gallery from "./components/Gallery";
-import About from "./components/About";
-import Create from "./components/create";
-import Footer from "./components/Footer";
+import Register from "./Register";
+import UserContext from "./UserContext";
+import axios from "axios";
+import Login from "./Login";
 
-const App = () => {
+function App() {
+  const [email,setEmail] = useState('');
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/user', {withCredentials:true})
+      .then(response => {
+        setEmail(response.data.email);
+      });
+  }, []);
+
+  function logout() {
+    axios.post('http://localhost:3000/logout', {}, {withCredentials:true})
+      .then(() => setEmail(''));
+  }
+
   return (
-    <div className="App">
-      <div>
-        <Navbar />
-        <Hero />
+    <main className="App">
+      <BrowserRouter>
+      <Navbar />
+      <Hero />
+    <UserContext.Provider value={{email,setEmail}}>
+        <div>
+          {!!email && (
+            <div>
+              Logged in as {email}
+              <button onClick={() => logout()}>Log out</button>
+            </div>
+          )}
+          {!email && (
+            <div>Not logged in</div>
+          )}
+        </div>
+        <hr/>
+        <div>
+          <Link to={'/'}>Home</Link> |
+          <Link to={'/login'}>Login</Link> |
+          <Link to={'/register'}>Register</Link>
+        </div>
         <Routes>
-          <Route exact path="/" element={<AppointmentList />} />
-          <Route path="/edit/:id" element={<Edit />} />
-          <Route path="/appointment/add" element={<Create />} />
-          <Route path="/Gallery" element={<Gallery />} />
-          <Route path="/About" element={<About />} />
+          <Route path={'/register'} element={<Register/>} />
+          <Route path={'/login'} element={<Login/>} />
         </Routes>
-      </div>
-      <Footer />
-    </div>
+        <hr/>
+    </UserContext.Provider>
+    </BrowserRouter>
+    </main>
   );
-};
+}
 
 export default App;
