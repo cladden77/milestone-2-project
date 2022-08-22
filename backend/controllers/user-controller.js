@@ -11,7 +11,7 @@ const signup = async (req, res, next) => {
   }
   if (existingUser) {
     return res
-      .status(400)
+      .sendStatus(400)
       .json({ message: "User already exists! Login Instead" });
   }
   const hashedPassword = bcrypt.hashSync(password);
@@ -92,7 +92,7 @@ const getUser = async (req, res, next) => {
     return new Error(err);
   }
   if (!user) {
-    return res.status(404).json({ message: "User Not FOund" });
+    return res.status(404).json({ message: "User Not Found" });
   }
   return res.status(200).json({ user });
 };
