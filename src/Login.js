@@ -1,4 +1,5 @@
 import {useState, useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import UserContext from "./UserContext";
 
@@ -9,6 +10,7 @@ function Login() {
   const [loginError,setLoginError] = useState(false);
 
   const user = useContext(UserContext);
+  
 
   function loginUser(e) {
     e.preventDefault();
@@ -25,8 +27,11 @@ function Login() {
         setLoginError(true);
       });
   }
+  
+  const navigate = useNavigate();
 
   return (
+    
     <div className="my-5">
     <form action="" onSubmit={e => loginUser(e)}>
       {loginError && (
@@ -38,7 +43,7 @@ function Login() {
       <div className="mb-3">
       <input type="password" placeholder="password" value={password} onChange={e => setPassword(e.target.value)}/>
       </div>
-      <button type="submit">log in</button>
+      <button type="submit" onClick={() => navigate('/appointment/add')}>log in</button>
     </form>
     </div>
   );
