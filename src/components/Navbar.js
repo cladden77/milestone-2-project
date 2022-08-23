@@ -46,7 +46,7 @@ function Navbar() {
                 <MDBNavbarLink href="/Packages">Packages</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="/Gallery">Gallery</MDBNavbarLink>
+                <MDBNavbarLink href="/Gallery.js">Gallery</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink href="/About">About Us</MDBNavbarLink>

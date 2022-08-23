@@ -9,6 +9,7 @@ import Hero from "./components/Hero";
 import AppointmentList from "./components/appointmentList";
 import Edit from "./components/edit";
 import Create from "./components/create";
+import Gallery from "./components/gallery/Gallery";
  
 const App = () => {
  return (
@@ -20,6 +21,7 @@ const App = () => {
        <Route exact path="/" element={<AppointmentList />} />
        <Route path="/edit/:id" element={<Edit />} />
        <Route path="/appointment/add" element={<Create />} />
+       <Route path="/gallery" element={<Gallery /> } />
      </Routes>
    </div>
    </div>
