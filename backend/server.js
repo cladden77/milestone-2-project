@@ -2,10 +2,11 @@ import express from 'express';
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
-import User from "./models/User.js";
+import User from "./models/user.js";
 import bcrypt from 'bcrypt';
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
+import appointmentRoutes from "./routes/appointment.js"
 
 const secret = 'secret123';
 
@@ -16,6 +17,7 @@ mongoose.connect(`mongodb+srv://userdb:6UPDkkf47u9mrqHy@atlascluster.x7zogyl.mon
   .catch((err) => console.log(err));
 
 const app = express();
+app.use("/appointment", appointmentRoutes);
 app.use(cookieParser());
 app.use(bodyParser.json({extended:true}));
 app.use(cors({
