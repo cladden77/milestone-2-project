@@ -5,9 +5,9 @@ const Appointment = (props) => (
     <td>{props.appointment.date}</td>
     <td>{props.appointment.time}</td>
     <td>
-      <button className="btn btn-link" to={`/edit/${props.appointment._id}`}>
-        Edit
-      </button>{" "}
+      <a href={`/update/${props.appointment._id}`}>
+        <button className="btn btn-link">Edit</button>
+      </a>
       |
       <button
         className="btn btn-link"
