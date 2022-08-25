@@ -1,105 +1,101 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router";
+import CalendarView from "../Content/CalendarView";
+import "../CSS/calendar.css";
+import "../CSS/create.css";
+import { useEffect } from "react";
 
-export default function Edit() {
+export default function Edit({ appointment }) {
   const [form, setForm] = useState({
     date: "",
     time: "",
-    appointments: [],
   });
+
   const params = useParams();
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [weekend, setWeekend] = useState(false);
+  const [selectedTime, setTime] = useState(null);
+  const [futureDate, setFutureDate] = useState(true);
+
+  const [showConfirm, setShowConfirm] = useState(false);
+
   const navigate = useNavigate();
 
+  const handleConfirm = (e) => {
+    e.preventDefault();
+    setShowConfirm(!showConfirm);
+  };
+
   useEffect(() => {
-    async function fetchData() {
-      const id = params.id.toString();
-      const response = await fetch(
-        `http://localhost:3000/appointment/${params.id.toString()}`
-      );
-
-      if (!response.ok) {
-        const message = `An error has occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
-
-      const appointments = await response.json();
-      if (!appointments) {
-        window.alert(`appointments with id ${id} not found`);
-        navigate("/");
-        return;
-      }
-
-      setForm(appointments);
-    }
-
-    fetchData();
-
-    return;
-  }, [params.id, navigate]);
-
-  // These methods will update the state properties.
-  function updateForm(value) {
-    return setForm((prev) => {
-      return { ...prev, ...value };
+    setForm({
+      date: selectedDate,
+      time: selectedTime,
     });
-  }
+  }, [selectedDate, selectedTime, futureDate]);
 
+  // This function will handle the submission.
   async function onSubmit(e) {
     e.preventDefault();
-    const editedAppointment = {
-      date: form.date,
-      time: form.time,
-    };
+    setShowConfirm(!showConfirm);
+    // When a post request is sent to the create url, we'll add a new record to the database.
+    const updateAppointment = { ...form };
 
-    // This will send a post request to update the data in the database.
     await fetch(`http://localhost:3000/update/${params.id}`, {
       method: "POST",
-      body: JSON.stringify(editedAppointment),
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify(updateAppointment),
+    }).catch((error) => {
+      window.alert(error);
+      return;
     });
 
+    setForm({ date: "", time: "" });
     navigate("/");
   }
-
-  // This following section will display the form that takes input from the user to update the data.
   return (
     <div>
-      <h3>Update Record</h3>
-      <form onSubmit={onSubmit}>
-        <div className="form-group">
-          <label htmlFor="date">Date: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="date"
-            value={form.date}
-            onChange={(e) => updateForm({ date: e.target.value })}
-          />
+      <CalendarView
+        setSelectedDate={setSelectedDate}
+        selectedDate={selectedDate}
+        setTime={setTime}
+        selectedTime={selectedTime}
+        setWeekend={setWeekend}
+        weekend={weekend}
+        setFutureDate={setFutureDate}
+        futureDate={futureDate}
+        showConfirm={showConfirm}
+      />
+      {showConfirm ? (
+        <div className="text-center">
+          <br />
+          <p>
+            Are you sure want to update your apointment on:{" "}
+            <span className="selected">{selectedDate}</span> at{" "}
+            <span className="selected">{selectedTime}</span>?
+          </p>
+          <button className="btn btn-primary" onClick={onSubmit}>
+            Yes
+          </button>
+          <button className="btn btn-primary" onClick={handleConfirm}>
+            No
+          </button>
         </div>
-        <div className="form-group">
-          <label htmlFor="time">Time: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="time"
-            value={form.time}
-            onChange={(e) => updateForm({ time: e.target.value })}
-          />
-        </div>
-
-        <br />
-
-        <div className="form-group">
-          <input
-            type="submit"
-            value="Update Appointment"
-            className="btn btn-primary"
-          />
-        </div>
-      </form>
+      ) : (
+        <form onSubmit={handleConfirm}>
+          <div className="form-group my-3">
+            <input
+              type="submit"
+              value="Update appointment"
+              className="btn btn-primary"
+              disabled={
+                !weekend || !futureDate || !selectedTime || !selectedDate
+              }
+            />
+          </div>
+        </form>
+      )}
     </div>
   );
 }
