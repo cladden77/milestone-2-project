@@ -27,7 +27,7 @@ export default function AppointmentList() {
   // This method fetches the appointments from the database.
   useEffect(() => {
     async function getAppointments() {
-      const response = await fetch(`http://localhost:3000/appointment/`);
+      const response = await fetch(`https://milestone-2-project-9bztbwfnl-cladden77.vercel.app/appointment`);
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
