@@ -68,7 +68,7 @@ export default function AppointmentList() {
 
   // This following section will display the table with the Appointments of individuals.
   return (
-    <div className="container mt-5">
+    <div className="container my-5">
       <h3>Appointment List</h3>
       <table className="table table-striped">
         <thead>

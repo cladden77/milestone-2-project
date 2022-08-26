@@ -24,8 +24,8 @@ function Navbar() {
         id="top"
       >
         <MDBContainer>
-          <MDBNavbarBrand>
-            <strong className="white-text">JDPC</strong>
+          <MDBNavbarBrand className="me-5">
+          <MDBNavbarLink aria-current="page" href="/"><strong className="white-text">JDPC</strong></MDBNavbarLink>
           </MDBNavbarBrand>
           <MDBNavbarToggler
             onClick={() => setShowBasic(!showBasic)}

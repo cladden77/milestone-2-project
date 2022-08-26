@@ -24,7 +24,9 @@ import { BrowserRouter } from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <div className="d-flex flex-column min-vh-100">
       <App />
+      </div>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
