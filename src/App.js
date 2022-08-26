@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css"
 
 // We use Route in order to define the different routes of our application
 import { Route, Routes } from "react-router-dom";
@@ -16,9 +17,9 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <div className="App">
-      <div>
-        <Navbar />
+      <Navbar />
         <Hero />
+      <div>
         <Routes>
           <Route exact path="/" element={<AppointmentList />} />
           <Route path="/update/:id" element={<Edit />} />
