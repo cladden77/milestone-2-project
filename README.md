@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# README - MERN Stack Application Milestone Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Our group decided to create and build a web application for an online scheduling system used in a fictitious car detailing company. The main requirements for this project was that the application had to be built with a MERN stack.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [Credits](#credits)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+As this is a website build from the Create React App with a back end via Node/Express, installation would include forking the repository, cloning the repo to your local machine, and then installing the dependencies with npm install. Once fully installed, you can run the app from the parent folder via the run start command using npm. This will pull up the website on Localhost 3001. You will also need to use another terminal or cmd window to cd into the backend folder and start the server by running nodemon server.js
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Once on the website, you can do a few things. To view currently scheduled appointments scroll down to view the table of dates and times. From this table it also allows you to edit or delete appointments. On the home page, you can click Book Now or the Schedule link at the top of the page and it will take you to a calendar view for you to be able to schedule a future date and time.
 
-### `npm run build`
+On the back end, each new submission of this calendar view will create a database entry with the information of date and time.  You can edit or delete an entry from the home page. and it will update the database and display accordingly on the frontend.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Credits
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This application was completed by Dean Perez, John Weilert, and Chris Ladden as a Milestone Project for K-State's Full Stack Software Development Bootcamp.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Credits for this application include:
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Create React App, React-Dom, React-Calendar, MongoDb, Express, Node.js, Cors, Axios, Bcrypt, Mongoose, Bootstrap, Material Design Framework, React Router, React Router Hash Link.
