@@ -45,7 +45,7 @@ export default function AppointmentList() {
 
   // This method will delete a record
   async function deleteAppointment(id) {
-    await fetch(`http://localhost:3000/${id}`, {
+    await fetch(`https://milestone-2-project-9bztbwfnl-cladden77.vercel.app/${id}`, {
       method: "DELETE",
     });
 
