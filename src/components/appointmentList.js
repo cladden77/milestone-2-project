@@ -27,7 +27,7 @@ export default function AppointmentList() {
   // This method fetches the appointments from the database.
   useEffect(() => {
     async function getAppointments() {
-      const response = await fetch(`https://milestone-2-project-9bztbwfnl-cladden77.vercel.app/appointment`);
+      const response = await fetch(`http://localhost:3000/appointment`);
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
@@ -45,7 +45,7 @@ export default function AppointmentList() {
 
   // This method will delete a record
   async function deleteAppointment(id) {
-    await fetch(`https://milestone-2-project-9bztbwfnl-cladden77.vercel.app/${id}`, {
+    await fetch(`http://localhost:3000/${id}`, {
       method: "DELETE",
     });
 
