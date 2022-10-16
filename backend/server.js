@@ -8,6 +8,11 @@ app.use(cors());
 app.use(express.json());
 app.use(require("./routes/appointment"))
 
+// serve static front end in production mode
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, 'client', 'build')));
+}
+
 // get driver connection
 const dbo = require("./db/conn");
 
